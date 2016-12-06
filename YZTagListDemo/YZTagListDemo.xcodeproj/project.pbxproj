@@ -29,6 +29,7 @@
 		ECC659701D62F24000E550D6 /* YZTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC6596E1D62F24000E550D6 /* YZTagList.m */; };
 		ECEEA14D1D62CB08002318CD /* YZGroupHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEEA14C1D62CB08002318CD /* YZGroupHeaderView.m */; };
 		ECEEA14F1D62CB12002318CD /* YZGroupHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECEEA14E1D62CB12002318CD /* YZGroupHeaderView.xib */; };
+		F42602C61DF703B30023E63B /* YZTag.m in Sources */ = {isa = PBXBuildFile; fileRef = F42602C51DF703B30023E63B /* YZTag.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,8 @@
 		ECEEA14B1D62CB08002318CD /* YZGroupHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZGroupHeaderView.h; sourceTree = "<group>"; };
 		ECEEA14C1D62CB08002318CD /* YZGroupHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZGroupHeaderView.m; sourceTree = "<group>"; };
 		ECEEA14E1D62CB12002318CD /* YZGroupHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YZGroupHeaderView.xib; sourceTree = "<group>"; };
+		F42602C41DF703B30023E63B /* YZTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZTag.h; sourceTree = "<group>"; };
+		F42602C51DF703B30023E63B /* YZTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZTag.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +246,8 @@
 				ECC6596C1D62F24000E550D6 /* YZTagButton.m */,
 				ECC6596D1D62F24000E550D6 /* YZTagList.h */,
 				ECC6596E1D62F24000E550D6 /* YZTagList.m */,
+				F42602C41DF703B30023E63B /* YZTag.h */,
+				F42602C51DF703B30023E63B /* YZTag.m */,
 			);
 			name = YZTagList;
 			path = ../../YZTagList;
@@ -325,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECA5C5A71D61E586005DDF36 /* ViewController.m in Sources */,
+				F42602C61DF703B30023E63B /* YZTag.m in Sources */,
 				ECC659701D62F24000E550D6 /* YZTagList.m in Sources */,
 				EC9979E91D62A6D80024CE8F /* YZTagGroupCell.m in Sources */,
 				ECEEA14D1D62CB08002318CD /* YZGroupHeaderView.m in Sources */,
