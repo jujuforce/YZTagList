@@ -161,6 +161,12 @@ CGFloat const imageViewWH = 20;
                      }];
 }
 
+- (void)deleteAllTags
+{
+    [self.tags removeAllObjects];
+    [self updateTag];
+}
+
 - (void)updateTag
 {
     NSInteger count = self.tagButtons.count;
