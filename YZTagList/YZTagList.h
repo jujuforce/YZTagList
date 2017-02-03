@@ -95,6 +95,8 @@
  */
 - (void)deleteTag:(NSString *)tagStr;
 
+- (void)deleteAllTags;
+
 - (CGFloat)tagListH;
 
 - (CGFloat)tagListW;
