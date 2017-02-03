@@ -163,6 +163,11 @@ CGFloat const imageViewWH = 20;
 
 - (void)deleteAllTags
 {
+    for (YZTagButton *currentButton in self.tags)
+    {
+        [currentButton removeFromSuperview];
+    }
+    [self.tagButtons removeAllObjects];
     [self.tags removeAllObjects];
     [self updateTag];
 }
