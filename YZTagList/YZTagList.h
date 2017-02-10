@@ -106,7 +106,7 @@
 @end
 
 @protocol YZTagListProtocol
-
+@optional
 - (void)deletedTagFromTagList:(YZTagList *)tagList title:(NSString *)text;
 
 @end
