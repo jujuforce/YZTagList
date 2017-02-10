@@ -18,30 +18,32 @@ static int i = 0;
 @implementation YZUserViewController
 
 // 添加标签
-- (IBAction)addTag:(id)sender {
-    
-    NSString *tagStr = [NSString stringWithFormat:@"%@  (%d)",_titles[arc4random_uniform(3)],i];
+- (IBAction)addTag:(id)sender
+{
+
+    NSString *tagStr = [NSString stringWithFormat:@"%@  (%d)", _titles[arc4random_uniform(3)], i];
     [_tagList addTag:tagStr];
     i++;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    
-    _titles = @[@"小码哥",@"峥",@"吖了个峥"];
-    
+
+    _titles = @[ @"小码哥", @"峥", @"吖了个峥" ];
+
     // 创建标签列表
     YZTagList *tagList = [[YZTagList alloc] init];
     tagList.backgroundColor = [UIColor brownColor];
     _tagList = tagList;
-    
+
     // 点击标签，就会调用,点击标签，删除标签
     __weak typeof(_tagList) weakTagList = _tagList;
-    _tagList.clickTagBlock = ^(NSString *tag){
-        [weakTagList deleteTag:tag];
+    //    _tagList.clickTagBlock = ^(NSString *tag){
+    //        [weakTagList deleteTag:tag];
+    //
+    //    };
 
-    };
-    
     // 高度可以设置为0，会自动跟随标题计算
     tagList.frame = CGRectMake(0, 64, self.view.bounds.size.width, 0);
     // 设置标签背景色
@@ -51,7 +53,6 @@ static int i = 0;
     // 设置标签删除图片
     tagList.tagDeleteimage = [UIImage imageNamed:@"chose_tag_close_icon"];
     [self.view addSubview:tagList];
-    
 }
 
 @end
