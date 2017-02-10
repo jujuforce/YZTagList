@@ -11,7 +11,7 @@
 
 @interface YZTag : NSObject
 
-@property (nonatomic, strong) NSString *text;
-@property (nonatomic, strong) UIColor *color;
+@property (nonatomic, strong) NSString* _Nonnull text;
+@property (nonatomic, strong) UIColor* _Nullable color;
 
 @end
