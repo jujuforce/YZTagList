@@ -6,8 +6,8 @@
 //  Copyright © 2016年 yz. All rights reserved.
 //
 
-#import "YZTagButton.h"
 #import "YZTagList.h"
+#import "YZTagButton.h"
 
 CGFloat const imageViewWH = 20;
 
@@ -159,6 +159,11 @@ CGFloat const imageViewWH = 20;
                      animations:^{
                        self.frame = frame;
                      }];
+
+    if ([self.delegate respondsToSelector:@selector(deletedTagFromTagList:title:)])
+    {
+        [self.delegate deletedTagFromTagList:self title:button.titleLabel.text];
+    }
 }
 
 - (void)deleteAllTags

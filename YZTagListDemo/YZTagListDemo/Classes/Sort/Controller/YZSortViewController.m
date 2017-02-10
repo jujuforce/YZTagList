@@ -27,13 +27,13 @@
     // 高度可以设置为0，会自动跟随标题计算
     tagList.frame = CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64);
     // 设置排序时，缩放比例
-    tagList.scaleTagInSort = 1.3;
+    // tagList.scaleTagInSort = 1.3;
     // 需要排序
-    tagList.isSort = YES;
+    // tagList.isSort = YES;
     // 标签尺寸
-    tagList.tagSize = CGSizeMake(80, 30);
+    // tagList.tagSize = CGSizeMake(80, 30);
     // 不需要自适应标签列表高度
-    tagList.isFitTagListH = NO;
+    // tagList.isFitTagListH = NO;
     [self.view addSubview:tagList];
 
     // 设置标签背景色

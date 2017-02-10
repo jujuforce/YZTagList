@@ -15,10 +15,12 @@
  */
 @interface YZTagList : UIView
 
+@property (nonatomic, strong) UIImage *tagDeleteimage;
+
 /**
  *  标签删除图片
  */
-@property (nonatomic, strong) UIImage *tagDeleteimage;
+@property (nonatomic, assign) id delegate;
 
 /**
  *  标签内间距,默认10
@@ -100,5 +102,11 @@
 - (CGFloat)tagListH;
 
 - (CGFloat)tagListW;
+
+@end
+
+@protocol YZTagListProtocol
+
+- (void)deletedTagFromTagList:(YZTagList *)tagList title:(NSString *)text;
 
 @end
