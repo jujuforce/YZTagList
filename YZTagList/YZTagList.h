@@ -76,6 +76,8 @@
 
 @property (nonatomic) BOOL oneLineMode;
 
+
+
 /**
  *  添加标签
  *
@@ -102,6 +104,8 @@
 - (CGFloat)tagListH;
 
 - (CGFloat)tagListW;
+
+- (NSArray*)getTagsString;
 
 @end
 
