@@ -166,14 +166,15 @@ CGFloat const imageViewWH = 20;
     CGRect frame = self.frame;
     frame.size.height = self.tagListH;
     [UIView animateWithDuration:0.25
-                     animations:^{
-                       self.frame = frame;
-                     }];
-
-    if ([self.delegate respondsToSelector:@selector(deletedTagFromTagList:title:)])
-    {
-        [self.delegate deletedTagFromTagList:self title:button.titleLabel.text];
-    }
+        animations:^{
+          self.frame = frame;
+        }
+        completion:^(BOOL finished) {
+          if ([self.delegate respondsToSelector:@selector(deletedTagFromTagList:title:)])
+          {
+              [self.delegate deletedTagFromTagList:self title:button.titleLabel.text];
+          }
+        }];
 }
 
 - (void)deleteAllTags
