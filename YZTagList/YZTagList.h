@@ -103,7 +103,7 @@
 
 - (CGFloat)tagListW;
 
-- (NSArray<NSString *> *_Nonnull)getTagsString;
+- (NSArray<NSString *> *)getTagsString;
 
 @end
 
