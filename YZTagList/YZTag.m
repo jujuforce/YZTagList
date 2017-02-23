@@ -23,7 +23,13 @@
 
 - (NSString *)description
 {
-    return [self.item description];
+    NSString *res = @"";
+    if ([self.item respondsToSelector:@selector(description)])
+    {
+        res = [self.item description];
+    }
+
+    return res;
 }
 
 @end
