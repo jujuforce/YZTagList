@@ -103,12 +103,12 @@
 
 - (CGFloat)tagListW;
 
-- (NSArray<NSString *> *)getTagsString;
+- (NSArray<YZTag *> *)getTags;
 
 @end
 
 @protocol YZTagListProtocol
 @optional
-- (void)deletedTagFromTagList:(YZTagList *)tagList title:(NSString *)text;
+- (void)deletedTagFromTagList:(YZTagList *)tagList item:(YZTag *)item;
 
 @end
