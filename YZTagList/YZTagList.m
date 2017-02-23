@@ -43,7 +43,7 @@ CGFloat const imageViewWH = 20;
     {
         [tags addObject:currentButton.titleLabel.text];
     }
-    return tags;
+    return [NSArray arrayWithArray:tags];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
