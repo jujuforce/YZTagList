@@ -10,20 +10,20 @@
 
 @implementation YZTag
 
-
-- (instancetype _Nonnull)initWithItem:(NSObject * _Nonnull) item color: (UIColor * _Nullable) color;
+- (instancetype _Nonnull)initWithItem:(id _Nonnull)item color:(UIColor *_Nullable)color
 {
     self = [super init];
-    if (self) {
+    if (self)
+    {
         self.item = item;
         self.color = color;
     }
     return self;
 }
 
-
-- (NSString *)description {
-    return self.item.description;
+- (NSString *)description
+{
+    return [self.item description];
 }
 
 @end

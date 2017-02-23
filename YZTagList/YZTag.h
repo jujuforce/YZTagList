@@ -9,11 +9,16 @@
 @import Foundation;
 @import UIKit;
 
+@protocol DescriptionProtocol
+@required
+- (NSString* _Nonnull)description;
+@end
+
 @interface YZTag : NSObject
 
-@property (nonatomic, strong) NSObject* _Nonnull item;
+@property (nonatomic) id<DescriptionProtocol> _Nonnull item;
 @property (nonatomic, strong) UIColor* _Nullable color;
 
-- (instancetype _Nonnull)initWithItem:(NSObject * _Nonnull) item color: (UIColor * _Nullable) color;
+- (instancetype _Nonnull)initWithItem:(id _Nonnull)item color:(UIColor* _Nullable)color;
 
 @end

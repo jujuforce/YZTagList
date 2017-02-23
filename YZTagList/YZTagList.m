@@ -108,7 +108,7 @@ CGFloat const imageViewWH = 20;
     tagButton.clipsToBounds = YES;
     tagButton.tag = self.tagButtons.count;
     [tagButton setImage:_tagDeleteimage forState:UIControlStateNormal];
-    [tagButton setTitle:tag.item.description forState:UIControlStateNormal];
+    [tagButton setTitle:[tag.item description] forState:UIControlStateNormal];
     [tagButton setTitleColor:_tagColor forState:UIControlStateNormal];
     [tagButton setBackgroundColor:tag.color != nil ? tag.color : _tagBackgroundColor];
     [tagButton setBackgroundImage:_tagBackgroundImage forState:UIControlStateNormal];
