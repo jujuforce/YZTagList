@@ -12,8 +12,7 @@
 CGFloat const imageViewWH = 20;
 
 @interface YZTagList ()
-@property (nonatomic, weak) UICollectionView *tagListView;
-@property (nonatomic, strong) NSMutableDictionary *tags;
+@property (nonatomic, strong) NSMutableArray *tags;
 @property (nonatomic, strong) NSMutableArray *tagButtons;
 @end
 
@@ -28,23 +27,23 @@ CGFloat const imageViewWH = 20;
     return _tagButtons;
 }
 
-- (NSMutableDictionary *)tags
+- (NSMutableArray *)tags
 {
     if (_tags == nil)
     {
-        _tags = [NSMutableDictionary dictionary];
+        _tags = [NSMutableArray array];
     }
     return _tags;
 }
 
-- (NSArray<NSString *> *)getTagsString;
+- (NSArray<YZTag *> *)getTags
 {
-    NSMutableArray *tagsString = [NSMutableArray new];
+    NSMutableArray *tags = [NSMutableArray new];
     for (UIButton *currentButton in self.tagButtons)
     {
-        [tagsString addObject:currentButton.titleLabel.text];
+        [tags addObject:currentButton.titleLabel.text];
     }
-    return tagsString;
+    return tags;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -81,13 +80,6 @@ CGFloat const imageViewWH = 20;
     self.clipsToBounds = YES;
 }
 
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-
-    _tagListView.frame = self.bounds;
-}
-
 - (CGFloat)tagListH
 {
     return CGRectGetMaxY([self.tagButtons.lastObject frame]) + _tagMargin;
@@ -99,11 +91,11 @@ CGFloat const imageViewWH = 20;
 }
 
 #pragma mark - 操作标签方法
-- (void)addTags:(NSArray *)tagStrs
+- (void)addTags:(NSArray *)tags
 {
-    for (NSString *tagStr in tagStrs)
+    for (YZTag *tag in tags)
     {
-        [self addTag:tagStr];
+        [self addTag:tag];
     }
 }
 - (void)addTag:(YZTag *)tag
@@ -116,7 +108,7 @@ CGFloat const imageViewWH = 20;
     tagButton.clipsToBounds = YES;
     tagButton.tag = self.tagButtons.count;
     [tagButton setImage:_tagDeleteimage forState:UIControlStateNormal];
-    [tagButton setTitle:tag.text forState:UIControlStateNormal];
+    [tagButton setTitle:tag.item.description forState:UIControlStateNormal];
     [tagButton setTitleColor:_tagColor forState:UIControlStateNormal];
     [tagButton setBackgroundColor:tag.color != nil ? tag.color : _tagBackgroundColor];
     [tagButton setBackgroundImage:_tagBackgroundImage forState:UIControlStateNormal];
@@ -125,8 +117,7 @@ CGFloat const imageViewWH = 20;
     [self addSubview:tagButton];
 
     [self.tagButtons addObject:tagButton];
-
-    [self.tags setObject:tagButton forKey:tag.text];
+    [self.tags addObject:tag];
 
     [self updateTagButtonFrame:tagButton.tag extreMargin:YES];
 
@@ -146,15 +137,15 @@ CGFloat const imageViewWH = 20;
     }
 }
 
-- (void)deleteTag:(NSString *)tagStr
+- (void)deleteTag:(YZTag *)tag
 {
-    YZTagButton *button = self.tags[tagStr];
+    NSInteger tagIndex = [self.tags indexOfObject:tag];
+    YZTagButton *button = self.tagButtons[tagIndex];
 
     [button removeFromSuperview];
 
     [self.tagButtons removeObject:button];
-
-    [self.tags removeObjectForKey:tagStr];
+    [self.tags removeObject:tag];
 
     [self updateTag];
 
@@ -170,16 +161,16 @@ CGFloat const imageViewWH = 20;
           self.frame = frame;
         }
         completion:^(BOOL finished) {
-          if ([self.delegate respondsToSelector:@selector(deletedTagFromTagList:title:)])
+          if ([self.delegate respondsToSelector:@selector(deletedTagFromTagList:item:)])
           {
-              [self.delegate deletedTagFromTagList:self title:button.titleLabel.text];
+              [self.delegate deletedTagFromTagList:self item:tag];
           }
         }];
 }
 
 - (void)deleteAllTags
 {
-    for (YZTagButton *currentButton in self.tags.allValues)
+    for (YZTagButton *currentButton in self.tags)
     {
         [currentButton removeFromSuperview];
     }
