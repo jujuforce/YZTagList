@@ -36,7 +36,7 @@ CGFloat const imageViewWH = 20;
     return _tags;
 }
 
-- (NSArray<YZTag *> *)getTags
+- (NSArray *)getTags
 {
     NSMutableArray *tags = [NSMutableArray new];
     for (UIButton *currentButton in self.tagButtons)
