@@ -103,7 +103,7 @@
 
 - (CGFloat)tagListW;
 
-- (NSArray *)getTags;
+- (NSArray<YZTag *> *)getTags;
 
 @end
 

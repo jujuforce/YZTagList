@@ -12,13 +12,13 @@
 CGFloat const imageViewWH = 20;
 
 @interface YZTagList ()
-@property (nonatomic, strong) NSMutableArray *tags;
-@property (nonatomic, strong) NSMutableArray *tagButtons;
+@property (nonatomic, strong) NSMutableArray<YZTag *> *tags;
+@property (nonatomic, strong) NSMutableArray<YZTagButton *> *tagButtons;
 @end
 
 @implementation YZTagList
 
-- (NSMutableArray *)tagButtons
+- (NSMutableArray<YZTagButton *> *)tagButtons
 {
     if (_tagButtons == nil)
     {
@@ -27,7 +27,7 @@ CGFloat const imageViewWH = 20;
     return _tagButtons;
 }
 
-- (NSMutableArray *)tags
+- (NSMutableArray<YZTag *> *)tags
 {
     if (_tags == nil)
     {
@@ -36,14 +36,9 @@ CGFloat const imageViewWH = 20;
     return _tags;
 }
 
-- (NSArray *)getTags
+- (NSArray<YZTag *> *)getTags
 {
-    NSMutableArray *tags = [NSMutableArray new];
-    for (UIButton *currentButton in self.tagButtons)
-    {
-        [tags addObject:currentButton.titleLabel.text];
-    }
-    return [NSArray arrayWithArray:tags];
+    return [NSArray<YZTag *> arrayWithArray:self.tags];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -91,7 +86,7 @@ CGFloat const imageViewWH = 20;
 }
 
 #pragma mark - 操作标签方法
-- (void)addTags:(NSArray *)tags
+- (void)addTags:(NSArray<YZTag *> *)tags
 {
     for (YZTag *tag in tags)
     {
