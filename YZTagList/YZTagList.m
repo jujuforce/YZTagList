@@ -124,11 +124,12 @@ CGFloat const imageViewWH = 20;
                      }];
 }
 
-- (void)clickTag:(UIButton *)button
+- (void)clickTag:(YZTagButton *)button
 {
     if (_tagAllowDelete == YES)
     {
-        [self deleteTag:button.currentTitle];
+        NSInteger buttonIndex = [self.tagButtons indexOfObject:button];
+        [self deleteTag:self.tags[buttonIndex]];
     }
 }
 

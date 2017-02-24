@@ -95,7 +95,7 @@
  *
  *  @param tagStr 标签文字
  */
-- (void)deleteTag:(NSString *)tagStr;
+- (void)deleteTag:(YZTag *)tag;
 
 - (void)deleteAllTags;
 
